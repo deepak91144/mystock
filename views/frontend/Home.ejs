@@ -1,0 +1,69 @@
+<%- include("header.ejs")%>
+<div class="filter">
+	<form action="" method="get">
+		<select name="filter" id="filter">
+			<option value="low-to-high"<%if(term=='low-to-high'){%>selected<%}%>>low-to-high</option>
+			<option value="high-to-low"<%if(term=='high-to-low'){%>selected<%}%>>high-to-low</option>
+			<option value="newer" <%if(term=='newer'){%>selected<%}%>>new</option>
+			<option value="older"<%if(term=='older'){%>selected<%}%>>old</option>
+			<option value="best-seller">Best Seller</option>
+		</select>
+		<input type="submit" />
+	</form>
+</div>
+<div class="product-con">
+	<% if(products){ %> <% products.forEach((product,index)=>{ %>
+	<div class="pro-inner-con">
+		<div class="img-con">
+			<a href="/product/<%= product._id%>">
+				<img
+					src="uploads/<%=product.image %>"
+					width="100"
+					height="100"
+					alt=""
+					srcset=""
+				/>
+			</a>
+		</div>
+		<a href="/product/<%= product._id%>"><h1><%= product.name %></h1></a>
+		<% if(product.quantity=="0") {%>
+				<h5 style="color: red;font-size: 20px;">not in stock</h5>
+			<%}%>
+		<h2><%= product.price %></h2>
+		<h6><%= product.categoryId.categoryName%></h6>
+		<div class="wishlist" ><i product-id="<%= product._id%>" class="fas fa-heart"></i></div>
+		<div class="wishlist-res" style="display: none;"></div>
+	</div>
+
+	<% }) %> <%}%>
+</div>
+<div class="rvp">
+	<h1> recently viewed product</h1>
+	<div class="product-con">
+<% if(recentlyViewedProducts){ %> <% recentlyViewedProducts.forEach((product,index)=>{ %>
+	<div class="pro-inner-con">
+		<div class="img-con">
+			<a href="/product/<%= product._id%>">
+				<img
+					src="uploads/<%=product.image %>"
+					width="100"
+					height="100"
+					alt=""
+					srcset=""
+				/>
+			</a>
+		</div>
+		<a href="/product/<%= product._id%>"><h1><%= product.name %></h1></a>
+		<% if(product.quantity=="0") {%>
+				<h5 style="color: red;font-size: 20px;">not in stock</h5>
+			<%}%>
+		<h2><%= product.price %></h2>
+		<h6><%= product.categoryId.categoryName%></h6>
+		<div class="wishlist" ><i product-id="<%= product._id%>" class="fas fa-heart"></i></div>
+		<div class="wishlist-res" style="display: none;"></div>
+	</div>
+
+	<% }) %> <%}%>
+</div>
+</div>
+<%- include("footer.ejs")%>

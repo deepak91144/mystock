@@ -1,0 +1,20 @@
+<%- include("header.ejs")%>
+<table border="2px" cellspacing="0">
+	<thead>
+		<th>order id</th>
+		<th>city</th>
+		<th>pincode</th>
+		<th>total price</th>
+	</thead>
+	<tbody>
+		<%if(order){%> <% order.forEach((data,index)=>{ %>
+		<tr>
+			<td><a href="/order/<%=data._id %>"><%= data._id %></a></td>
+			<td><%= data.city %></td>
+			<td><%= data.pincode%></td>
+			<td><%= data.totalPrice%></td>
+		</tr>
+		<%})%> <%}%>
+	</tbody>
+</table>
+<%- include("footer.ejs")%>

@@ -1,0 +1,36 @@
+<%- include('header')%>
+<form
+	action="/user/save-updated-user"
+	method="post"
+	enctype="multipart/form-data"
+>
+	<input
+		type="text"
+		placeholder="enter name"
+		name="name"
+		id="register-name"
+		value="<%= userDetails.name%>"
+	/>
+	<input type="hidden" name="hiddenId" value="<%= userDetails._id%>" />
+
+	<br />
+	<input
+		type="email"
+		placeholder="enter email"
+		name="email"
+		id="register-email"
+		value="<%= userDetails.email%>"
+	/>
+
+	<br />
+	<input type="password" placeholder="enter password" name="password" />
+	<br />
+	<img src="/uploads/<%= userDetails.image%>" width="100" height="100" alt="" />
+	<input type="file" name="image" />
+
+	<br />
+
+	<input type="submit" value="Register" />
+</form>
+
+<%- include('footer')%>

@@ -1,0 +1,34 @@
+<%- include("header.ejs") %>
+
+<form action="/admin/cupon/save-updated-cupon" method="post">
+	<input type="text" name="cuponCode" value="<%= cupon.cuponCode%>" />
+        
+    <br />
+    <% if(errors.cuponCode) {%>
+            <p class="error-msg"><%= errors.cuponCode.msg %></p>
+            <%}%>
+    <input type="hidden" value="<%= cupon._id%>" name="hiddenId">
+	<select name="cuponType" id="">
+		<option value="percentage" <% if(cupon.cuponType=="percentage") {%> selected <%}%> >percentage</option>
+		<option value="flat-rate" <% if(cupon.cuponType=="flat-rate") {%> selected <%}%>>flat-rate</option></select
+	><br />
+	<input type="number" name="cuponValue" value="<%= cupon.cuponValue%>" /><br />
+    <% if(errors.cuponValue) {%>
+            <p class="error-msg"><%= errors.cuponValue.msg %></p>
+            <%}%>
+	<input
+		type="number"
+		name="cartMinValue"
+		value="<%= cupon.cartMinValue%>"
+        
+	/><br />
+    <% if(errors.cartMinValue) {%>
+            <p class="error-msg"><%= errors.cartMinValue.msg %></p>
+            <%}%>
+	<select name="status" id="">
+		<option value="true" <% if(cupon.status=="true") {%> selected <%}%> >true</option>
+		<option value="false" <% if(cupon.status=="false") {%> selected <%}%>>false</option></select
+	><br />
+	<input type="submit" value="update cupon" />
+</form>
+<%- include("footer.ejs") %>

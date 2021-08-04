@@ -1,0 +1,49 @@
+<%- include("header")%>
+<table class="table" id="product-table">
+	<thead class="thead-dark">
+		<th>name</th>
+		<th>category</th>
+		<th>image</th>
+		<th>mrp</th>
+		<th>price</th>
+		<th>short desc</th>
+		<th>desc</th>
+		<th>Best Seller</th>
+		<th>opperations</th>
+	</thead>
+	<tbody>
+		<% if(products){ %> <% products.forEach((pro,index)=>{ %>
+		<tr>
+			<td><%= pro.name%></td>
+			<td><%= pro.categoryId.categoryName%></td>
+			<td>
+				<img
+					src="/uploads/<%= pro.image%>"
+					alt=""
+					width="100px"
+					height="100px"
+				/>
+			</td>
+			<td><%= pro.mrp %></td>
+			<td><%= pro.price%></td>
+			<td><%= pro.shortDescription%></td>
+			<td><%= pro.description%></td>
+			<td>
+				<% if( pro.bestSeller==1) {%>
+				<h5>Yes</h5>
+				<%}if( pro.bestSeller==0){%>
+				<h5>No</h5>
+				<%}%>
+			</td>
+			<td>
+				<button class="delete-product" product-id="<%= pro._id%>">
+					delete
+				</button>
+				<a href="/admin/product/edit/<%= pro._id%>">Edit</a>
+			</td>
+		</tr>
+		<%})%> <% } %>
+	</tbody>
+</table>
+
+<%- include("footer")%>

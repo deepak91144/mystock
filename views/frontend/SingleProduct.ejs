@@ -1,0 +1,57 @@
+<%- include("header.ejs")%> <% if(product){ %>
+<div class="single-pro-con">
+	<div class="img-con">
+		<img
+			src="/uploads/<%= product.image%>"
+			alt=""
+			width="200px"
+			height="200px"
+		/>
+	</div>
+	<h1><%= product.name%></h1>
+	<% if(product.quantity=="0") {%>
+	<h5 style="color: red; font-size: 20px">not in stock</h5>
+	<%}%>
+	<h3><%= product.description%></h3>
+	<h5><%= product.price%></h5>
+	<% if(product.quantity!="0") {%>
+	<button class="add-to-cart" product-id="<%= product._id %>">
+		Add To Cart
+	</button>
+	<%}%>
+
+	<div class="cart-res" style="display: none"></div>
+</div>
+<div class="review-con">
+	<div class="comment">
+		<h1 class="reviews">reviews</h1>
+		<%if(ratings){%> <%ratings.forEach((rate,index)=>{%>
+		<h3 class="name"><%= rate.userId.name%></h3>
+		<p class="rate"><%= rate.rating%></p>
+		<p class="review"><%= rate.review%></p>
+		<%})%> <%}%>
+	</div>
+
+	<form action="" id="rating-form" method="post" enctype="multipart/form-data">
+		<label for="rating">rating</label>
+
+		<select name="rating" id="">
+			<option value="excelent">excelent</option>
+			<option value="verygood">very good</option>
+			<option value="good">good</option>
+			<option value="bad">bad</option></select
+		><br />
+		<label for="review">review</label>
+		<textarea
+			name="review"
+			id=""
+			cols="30"
+			placeholder="write your review here"
+			rows="10"
+		></textarea
+		><br />
+		<input type="submit" value="Rate This Product" />
+	</form>
+	<div class="rate-res" style="display: none"></div>
+</div>
+<%}%> <%- include("footer.ejs")%>

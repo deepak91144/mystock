@@ -1,0 +1,64 @@
+<%- include("header.ejs") %>
+
+    <% if(product){ %>
+       
+                <div class="add-product">
+	<form action="/admin/product/editdata" method="POST" enctype="multipart/form-data">
+		<input type="text" name="name" value="<%= product.name%>" placeholder="enter product name" /><br />
+        <input type="hidden" name="hiddenId" value="<%= product._id%>">
+        <% if(errors.name){ %>
+		<p class="error-msg"><%= errors.name.msg%></p">
+		<%}%><br>
+		<select name="categoryId" id="">
+			<% if(categories) {%> <% categories.forEach((cat,index)=>{ %>
+                
+			<option  <% if(product.categoryId==cat._id){ %> selected <%}%> %>  value="<%= cat._id%>"><%= cat.categoryName%></option>
+			<%})%> <%}%></select
+		><br />
+		<input type="number" name="mrp" value="<%= product.mrp%>" placeholder="enter mrp" /><br />
+		<% if(errors.mrp){ %>
+		<p class="error-msg"><%= errors.mrp.msg%></p>
+		<%}%>
+		<input type="number" name="price" value="<%= product.price%>" placeholder="enter price" /><br />
+		<% if(errors.price){ %>
+		<p class="error-msg"><%= errors.price.msg%></p>
+		<%}%>
+		<input type="number" name="quantity" value="<%= product.quantity%>" placeholder="enter quantity" /><br />
+		<% if(errors.quantity){ %>
+		<p class="error-msg"><%= errors.quantity.msg%></p>
+		<%}%>
+		<input type="file" name="image" /><br />
+		<input
+			type="text"
+			name="shortDescription"
+            value="<%= product.shortDescription%>"
+			placeholder="enter short description"
+		/><br />
+		<% if(errors.shortDescription){ %>
+		<p class="error-msg"><%= errors.shortDescription.msg%></p>
+		<%}%>
+		<input
+			type="text"
+			name="description"
+            value="<%= product.description%>"
+			placeholder="enter description"
+		/><br />
+		<input type="text" name="metaTitle"  value="<%= product.metaTitle%>" placeholder="enter meta title" /><br />
+		<input
+			type="text"
+			name="metaDescription"
+              value="<%= product.metaDescription%>"
+			placeholder="enter meta description"
+		/><br />
+		<select name="bestSeller" id="">
+			<option <% if(product.bestSeller==0){ %> selected <%}%> %> value="0">No</option>
+			<option <% if(product.bestSeller==1){ %>selected <%}%> %> value="1">Yes</option>
+		</select>
+		<br>
+		<input type="submit" value="Edit Product" />
+	</form>
+</div>
+        <%}%>
+   
+
+<%- include("footer.ejs") %>

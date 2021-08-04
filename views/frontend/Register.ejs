@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="frontend/css/FrontStyle.css" />
+	</head>
+	<body>
+		<div class="register">
+			<form action="" id="user-register">
+				<input
+					type="text"
+					placeholder="enter name"
+					name="name"
+					id="register-name"
+				/>
+
+				<br />
+				<input
+					type="email"
+					placeholder="enter email"
+					name="email"
+					id="register-email"
+				/>
+
+				<input type="number" name="otpbox" id="otpbox" style="display: none" />
+
+				<a href="#" id="verify-otp" style="display: none">verify otp</a>
+				<a href="#" id="sendotp">send otp</a>
+				<p style="display: none" id="otp-res"></p>
+
+				<br />
+				<input
+					type="password"
+					placeholder="enter password"
+					name="password"
+					id="register-password"
+				/>
+				<input type="file" name="image" />
+
+				<br />
+
+				<input type="submit" disabled id="submit-btn" value="Register" />
+			</form>
+
+			<div id="err-msg"></div>
+		</div>
+		<%- include("footer")%>
+	</body>
+</html>

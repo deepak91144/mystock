@@ -1,0 +1,27 @@
+<%- include("header.ejs") %>
+<table class="table" id="category-table">
+	<thead class="thead-dark">
+		<th>category name</th>
+		<th>category description</th>
+		<th>active</th>
+		<th>deactive</th>
+		<th>delete</th>
+		<th>opperations</th>
+	</thead>
+	<tbody>
+		<% if(categories){ %> <% categories.forEach((cat,index)=>{ %>
+		<tr>
+			<td><%= cat.categoryName%></td>
+			<td><%= cat.categoryDetails %></td>
+			<td><%= cat.active%></td>
+			<td><%= cat.deactive%></td>
+			<td><%= cat.delete%></td>
+			<td>
+				<button class="delete-cat" cat-id="<%= cat._id%>">delete</button>
+			</td>
+		</tr>
+		<%})%> <% } %>
+	</tbody>
+</table>
+
+<%- include("footer.ejs") %>

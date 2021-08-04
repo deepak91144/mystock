@@ -1,0 +1,247 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+.product-con {
+	display: flex;
+}
+.product-con .pro-inner-con {
+	margin: 20px;
+}
+.header {
+	background-color: blueviolet;
+	display: flex;
+}
+
+.header .menu a {
+	margin: 10px;
+	color: floralwhite;
+	font-size: 20px;
+}
+.my-order {
+	margin-left: auto;
+}
+.my-order a {
+	color: floralwhite;
+	font-size: 20px;
+	margin: 10px;
+}
+a {
+	text-decoration: none;
+	font-size: 20px;
+}
+.register {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.register form input {
+	margin: 10px;
+	border-radius: 10px;
+	padding: 7px;
+}
+.login {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.login form input {
+	margin: 10px;
+	border-radius: 10px;
+	padding: 7px;
+}
+.error-msg {
+	color: red;
+}
+.my-order {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.search {
+	margin: 10px;
+	padding: 10px;
+}
+.search form input {
+	padding: 10px;
+}
+.my-order .cart i {
+	font-size: 40px;
+	color: black;
+}
+.my-order .cart i:hover {
+	cursor: pointer;
+}
+.wishlist i {
+	font-size: 40px;
+	color: red;
+	margin: 10px;
+}
+
+.wishlist i:hover {
+	cursor: pointer;
+}
+.wishlist-cart i {
+	font-size: 40px;
+	color: red;
+	margin: 10px;
+}
+.wishlist-cart i:hover {
+	cursor: pointer;
+}
+.cart-res {
+	color: red;
+}
+.register #err-msg {
+	color: red;
+}
+.checkcout-con {
+	display: flex;
+	justify-content: space-between;
+}
+
+.checkout-box .box-con {
+	margin-right: 100px;
+	width: 200px;
+	box-shadow: 10px 10px 5px gray, -10px -10px 5px gray;
+	min-height: 200px;
+	display: flex;
+	flex-direction: column;
+	border: 2px solid red;
+}
+.product-details p {
+	display: inline;
+	padding: 20px;
+}
+.cupon {
+	margin-top: 20px;
+}
+.cupon input {
+	padding: 10px;
+	border: 2px solid red;
+	border: transparent;
+	display: inline;
+}
+
+.cupon button {
+	border: 1px solid green;
+	background-color: hotpink;
+	width: 100px;
+	height: 30px;
+
+	color: yellow;
+}
+.cupon .response {
+	display: none;
+}
+
+.single-pro-con {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+.review-con {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+.review-con form {
+	margin-top: 30px;
+	order: -1;
+}
+.review-con form select {
+	padding: 20px;
+	border-radius: 10px;
+	border-color: hotpink;
+}
+.review-con form textarea {
+	border-radius: 10px;
+	outline: none;
+	margin-top: 20px;
+}
+
+.review-con form input {
+	border: none;
+	background-color: indigo;
+	color: white;
+	height: 50px;
+	width: 150px;
+	border-radius: 10px;
+}
+.single-pro-con .add-to-cart {
+	border: none;
+	background-color: indigo;
+	color: white;
+	height: 50px;
+	width: 150px;
+	border-radius: 10px;
+}
+.comment {
+	position: relative;
+	right: 100px;
+}
+.comment .reviews {
+	position: relative;
+	right: 40px;
+	color: maroon;
+	text-transform: capitalize;
+}
+.comment p {
+	position: relative;
+	left: 50px;
+}
+.single-pro-con {
+	text-transform: capitalize;
+}
+.cartContainer {
+	margin-top: 100px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+.cartTable {
+	width: 50%;
+}
+.cartTable thead {
+	background-color: blueviolet;
+	height: 40px;
+	text-transform: capitalize;
+	color: indigo;
+	font-size: larger;
+}
+.cartTable tbody tr td {
+	text-align: center;
+	padding: 20px;
+}
+.cartTable tbody tr td button {
+	background-color: indigo;
+	color: lavender;
+	width: 50px;
+	border: none;
+	border-radius: 10px;
+}
+.cartTable tbody tr td input {
+	padding: 10px;
+	width: 30px;
+}
+.cartTable img {
+	width: 80px;
+	height: 80px;
+}
+.cartTable tbody tr td.product {
+	display: flex;
+	justify-content: space-between;
+}
+.cartTotal {
+	text-transform: capitalize;
+	font-size: larger;
+	color: indigo;
+	font-weight: bolder;
+	margin-left: 400px;
+}
+.cartContainer .checkoutWrap a {
+	margin-top: 100px;
+	padding: 30px;
+}

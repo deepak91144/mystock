@@ -1,0 +1,65 @@
+* {
+	padding: 0px;
+	margin: 0px;
+}
+.header {
+	background-color: brown;
+}
+.menu {
+	display: flex;
+}
+.menu a {
+	margin: 10px;
+	font-size: 20px;
+	color: whitesmoke;
+	text-transform: capitalize;
+}
+.add-product {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.add-product form input {
+	margin: 10px;
+	padding: 7px;
+	border-radius: 10px;
+}
+.error-msg {
+	color: red;
+}
+.cat-con {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.cat-con form input {
+	margin: 10px;
+	border-radius: 10px;
+	padding: 7px;
+}
+
+.vendorHeader .vendorMenu {
+	background-color: indigo;
+	height: 50px;
+}
+
+.vendorHeader .vendorMenu ul li a {
+	color: ivory;
+	padding: 10px;
+	font-size: 30px;
+	text-transform: capitalize;
+	text-decoration: none;
+	transition: all 2s;
+	transform: translateX(0px);
+	border: none;
+}
+.vendorHeader .vendorMenu ul li a:hover {
+	transform: translateX(100px);
+	color: #8a2be2;
+	border-bottom: 1px solid red;
+}
+.vendorHeader .vendorMenu ul {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

@@ -1,0 +1,42 @@
+<%- include("header.ejs") %>
+<form action="/admin/save-cupon-data" method="post">
+	<input type="text" name="cuponCode" placeholder="enter cupon name" />
+
+	<br />
+	<% if(errors.cuponCode){ %>
+	<p class="error-msg"><%= errors.cuponCode.msg%></p>
+	<%}%>
+	<select name="cuponType" id="">
+		<option value="percentage">percentage</option>
+		<option value="flat-rate">FlatRate</option>
+	</select>
+	<% if(errors.cuponType){ %>
+	<p class="error-msg"><%= errors.cuponType.msg%></p>
+	<%}%>
+	<br />
+	<input type="number" name="cuponValue" placeholder="enter cupon value" />
+	<br />
+	<% if(errors.cuponValue){ %>
+	<p class="error-msg"><%= errors.cuponValue.msg%></p>
+	<%}%>
+
+	<input
+		type="number"
+		name="cartMinValue"
+		placeholder="enter cart minimum value"
+	/><br />
+	<% if(errors.cartMinValue){ %>
+	<p class="error-msg"><%= errors.cartMinValue.msg%></p>
+	<%}%>
+
+	<select name="status" id="">
+		<option value="true">true</option>
+		<option value="false">false</option>
+	</select>
+	<% if(errors.status){ %>
+	<p class="error-msg"><%= errors.status.msg%></p>
+	<%}%>
+	<br />
+	<input type="submit" value="Add Cupon" />
+</form>
+<%- include("footer.ejs") %>

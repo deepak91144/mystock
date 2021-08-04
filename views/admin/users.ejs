@@ -1,0 +1,29 @@
+<%- include("header.ejs") %>
+		<table border="1px" cellspacing="0px" class="table" id="user-table">
+			<thead>
+				<th>name</th>
+				<th>email</th>
+				<th>image</th>
+				<th>opperations</th>
+			</thead>
+			<tbody>
+				<% if(users) {%> <% users.forEach((data,index)=>{ %>
+				<tr>
+					<td><%= data.name%></td>
+					<td><%= data.email%></td>
+					<td>
+						<img
+							src="/uploads/<%= data.image%>"
+							alt=""
+							width="100"
+							height="100"
+						/>
+					</td>
+					<td>
+						<button class="delete-btn" user-id="<%= data._id %>" </button>delete</button>
+					</td>
+				</tr>
+				<%})%> <%}%>
+			</tbody>
+		</table>
+<%- include("footer.ejs") %>

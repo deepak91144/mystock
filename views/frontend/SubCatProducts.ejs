@@ -1,0 +1,22 @@
+<div class="product-con">
+	<% if(products){ %> <% products.forEach((product,index)=>{ %>
+	<div class="pro-inner-con">
+		<div class="img-con">
+			<a href="/product/<%= product._id%>">
+				<img
+					src="/uploads/<%=product.image %>"
+					width="100"
+					height="100"
+					alt=""
+					srcset=""
+				/>
+			</a>
+		</div>
+		<a href="/product/<%= product._id%>"><h1><%= product.name %></h1></a>
+		<h2><%= product.price%></h2>
+		<h6><%= product.categoryId.categoryName%></h6>
+	</div>
+
+	<% }) %> <%}%>
+</div>
+<%- include("footer")%>

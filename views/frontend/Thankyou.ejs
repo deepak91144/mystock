@@ -1,0 +1,19 @@
+<%- include("header.ejs")%> <% if(orderData){ %>
+<table border="1px" cellspacing="opx">
+	<tr>
+		<th>product name</th>
+		<th>qty</th>
+		<th>price</th>
+	</tr>
+	<tbody>
+		<%orderData.forEach((data,index)=>{%>
+		<tr>
+			<td><%= data.productId.name%></td>
+			<td><%= data.qty%></td>
+			<td><%= data.qty%>x<%= data.productId.price%></td>
+		</tr>
+		<%})%>
+	</tbody>
+</table>
+<h1><%= orderData[0].orderId.totalPrice %></h1>
+<%}%> <%- include("footer.ejs")%>

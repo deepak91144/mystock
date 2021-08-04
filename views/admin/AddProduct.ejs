@@ -1,0 +1,56 @@
+<%- include("header.ejs") %>
+<div class="add-product">
+	<form action="/admin/product/add" method="POST" enctype="multipart/form-data">
+		<input type="text" name="name" placeholder="enter product name" /><br />
+		<% if(errors.name){ %>
+		<p class="error-msg"><%= errors.name.msg%></p">
+		<%}%><br>
+		<select name="categoryId" id="choseCategory">
+			<option value="" selected disabled>chose category</option>
+			<% if(categories) {%> <% categories.forEach((cat,index)=>{ %>
+			<option value="<%= cat._id%>"><%= cat.categoryName%></option>
+			<%})%> <%}%></select
+		><br />
+		<div class="subcat"></div>
+		<input type="number" name="mrp" placeholder="enter mrp" /><br />
+		<% if(errors.mrp){ %>
+		<p class="error-msg"><%= errors.mrp.msg%></p>
+		<%}%>
+		<input type="number" name="price" placeholder="enter price" /><br />
+		<% if(errors.price){ %>
+		<p class="error-msg"><%= errors.price.msg%></p>
+		<%}%>
+		<input type="number" name="quantity" placeholder="enter quantity" /><br />
+		<% if(errors.quantity){ %>
+		<p class="error-msg"><%= errors.quantity.msg%></p>
+		<%}%>
+		<input type="file" name="image" /><br />
+		<input
+			type="text"
+			name="shortDescription"
+			placeholder="enter short description"
+		/><br />
+		<% if(errors.shortDescription){ %>
+		<p class="error-msg"><%= errors.shortDescription.msg%></p>
+		<%}%>
+		<input
+			type="text"
+			name="description"
+			placeholder="enter description"
+		/><br />
+		<input type="text" name="metaTitle" placeholder="enter meta title" /><br />
+		<input
+			type="text"
+			name="metaDescription"
+			placeholder="enter meta description"
+		/><br />
+		<p>best seller</p>
+		<select name="bestSeller" id="">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</select>
+		<br>
+		<input type="submit" value="Add Product" />
+	</form>
+</div>
+<%- include("footer.ejs") %>

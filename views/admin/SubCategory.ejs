@@ -1,0 +1,30 @@
+<%- include("header.ejs") %>
+<table class="table" id="category-table">
+	<thead class="thead-dark">
+		<th>category name</th>
+		<th>category description</th>
+		<th>active</th>
+		<th>parent category</th>
+		<th>deactive</th>
+		<th>delete</th>
+		<th>opperations</th>
+	</thead>
+	<tbody>
+		<% if(subCategories){ %> <% subCategories.forEach((cat,index)=>{ %>
+		<tr>
+			<td><%= cat.subCategoryName%></td>
+			<td><%= cat.subCategoryDetails %></td>
+			<td><%= cat.parentCategory.categoryName %></td>
+			<td><%= cat.active%></td>
+			<td><%= cat.deactive%></td>
+			<td><%= cat.deleted%></td>
+			<td>
+				<a href="/admin/subcategory/delete/<%= cat._id%>">delete</a>
+				<a href="/admin/subcategory/update/<%= cat._id%>">update</a>
+			</td>
+		</tr>
+		<%})%> <% } %>
+	</tbody>
+</table>
+
+<%- include("footer.ejs") %>

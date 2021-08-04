@@ -1,0 +1,29 @@
+<%- include("VHeader.ejs")%>
+<form action="/admin/vendor/add" method="post" enctype="multipart/form-data">
+	<input type="text" placeholder="enter name" name="name" />
+
+	<br />
+	<% if(errors.name){ %>
+	<p><%= errors.name.msg%></p>
+	<%}%>
+	<input type="email" placeholder="enter email" name="email" />
+
+	<br />
+	<% if(errors.email){ %>
+	<p><%= errors.email.msg%></p>
+	<%}%>
+	<input type="password" placeholder="enter password" name="password" />
+
+	<br />
+	<% if(errors.password){ %>
+	<p><%= errors.password.msg%></p>
+	<%}%>
+	<select name="role" id="">
+		<option value="admin">admin</option>
+		<option value="vendor">vendor</option>
+	</select>
+	<br />
+	<input type="file" name="image" /><br />
+	<input type="submit" />
+</form>
+<%- include("VFooter.ejs")%>

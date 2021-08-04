@@ -1,0 +1,19 @@
+<%- include("header")%>
+<table border="2px" cellspacing="0px">
+	<thead>
+		<th>product</th>
+
+		<th>payment status</th>
+		<th>order status</th>
+	</thead>
+	<tbody>
+		<% if(orderDetails) {%> <% orderDetails.forEach((order,index)=>{ %>
+		<tr>
+			<td><%= order._id %></td>
+			<td><%= order.orderId.paymentStatus%></td>
+			<td><%= order.orderId.orderStatus %></td>
+		</tr>
+		<%})%> <%}%>
+	</tbody>
+</table>
+<%- include("footer")%>

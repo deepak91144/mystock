@@ -1,0 +1,32 @@
+<%- include("VHeader.ejs")%> <%if(vendors){%>
+<table id="vendorTable">
+	<thead>
+		<th>name</th>
+		<th>email</th>
+		<th>img</th>
+		<th>opp</th>
+	</thead>
+	<tbody>
+		<%vendors.forEach((vendor,index)=>{%>
+		<tr>
+			<td><%= vendor.name%></td>
+			<td><%= vendor.email%></td>
+			<td>
+				<img
+					width="100px"
+					height="100px"
+					src="/uploads/<%= vendor.image%>"
+					alt=""
+				/>
+			</td>
+			<td>
+				<button class="vendorDeleteBtn" vendorId="<%= vendor._id%>">
+					delete</button
+				><button>update</button>
+			</td>
+		</tr>
+		<%})%>
+	</tbody>
+</table>
+
+<%}%> <%- include('VFooter.ejs')%>

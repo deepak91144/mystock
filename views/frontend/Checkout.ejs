@@ -1,0 +1,44 @@
+<%- include("header.ejs")%> <% if(isUserLoggedIn!=true){ %> <%-
+include("Register")%> <%}%> <% if(isUserLoggedIn!=true){ %> <%-
+include("Login")%>
+<div id="res"></div>
+<%}%> <% if(isUserLoggedIn==true){ %>
+<form action="/place-order" method="post" id="order-form">
+	<input type="text" name="address" placeholder="enter address" /><br />
+	<input type="text" name="city" placeholder="enter city" /><br />
+	<input type="number" name="pincode" placeholder="enter pincode" /><br />
+	<label for="">select payment option</label>
+	<select name="paymentType" id="">
+		<option value="cod">COD</option>
+		<option value="card">CARD</option>
+	</select>
+</form>
+
+<%}%> <%= isUserLoggedIn %>
+<div class="checkcout-con">
+	<div class="checkout-box">
+		<div class="box-con">
+			<div class="product-details">
+				<% product.forEach((data,index)=>{ %>
+
+				<p><%= data.name%></p>
+				<% cartProducts.forEach((d,i)=>{ %> <%if(d.product==data._id){%>
+				<p><%=d.qty %> x <%= data.price%></p>
+				<%}%> <%})%> <%})%>
+
+				<div class="cartTotal">
+					<span>cartTotal:</span>
+					<p class="total"><%= cartTotal%></p>
+				</div>
+			</div>
+			<div class="cupon">
+				<input type="text" id="cupon-input" placeholder="enter cupon" />
+				<button id="apply">Apply</button>
+				<div class="response"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<a id="place-order" href="/stripe">place order</a>
+<p class="error-msg"></p>
+<%- include("footer.ejs")%>

@@ -1,0 +1,20 @@
+<%- include("header.ejs") %>
+<div class="cat-con">
+	<form action="/admin/category/save-category" method="post">
+		<input
+			type="text"
+			placeholder="eneter category name"
+			name="categoryName"
+		/><br />
+		<% if(errors.categoryName) {%>
+		<p class="error-msg"><%= errors.categoryName.msg %></p>
+		<% } %>
+		<input
+			type="text"
+			placeholder="enter category details"
+			name="categoryDetails"
+		/><br />
+		<input type="submit" value="Add Category" />
+	</form>
+</div>
+<%- include("footer.ejs") %>

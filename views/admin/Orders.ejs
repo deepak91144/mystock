@@ -1,0 +1,19 @@
+<%- include("header")%>
+<table>
+	<thead>
+		<th>product</th>
+
+		<th>payment status</th>
+		<th>order status</th>
+	</thead>
+	<tbody>
+		<% if(orders) {%> <% orders.forEach((order,index)=>{ %>
+		<tr>
+			<td><a href="/admin/order/<%=order._id%>"><%= order._id %></a></td>
+			<td><%= order.paymentStatus%></td>
+			<td><%= order.orderStatus %></td>
+		</tr>
+		<%})%> <%}%>
+	</tbody>
+</table>
+<%- include("footer")%>

@@ -1,0 +1,30 @@
+<%- include("header")%>
+<table class="table" id="cupon-table">
+	<thead class="thead-dark">
+		<th>name</th>
+		<th>value</th>
+		<th>type</th>
+		<th>cart min value</th>
+		<th>status</th>
+		<th>opperation</th>
+	</thead>
+	<tbody>
+		<% if(cupons){ %> <% cupons.forEach((cupon,index)=>{ %>
+		<tr>
+			<td><%= cupon.cuponCode%></td>
+			<td><%= cupon.cuponValue%></td>
+
+			<td><%= cupon.cuponType %></td>
+			<td><%= cupon.cartMinValue%></td>
+			<td><%= cupon.status%></td>
+
+			<td>
+				<button class="delete-cupon" cupon-id="<%= cupon._id%>">delete</button>
+				<a href="/admin/cupon/edit/<%= cupon._id%>">Edit</a>
+			</td>
+		</tr>
+		<%})%> <% } %>
+	</tbody>
+</table>
+
+<%- include("footer")%>

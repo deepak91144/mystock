@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<% if(metaTitle) {%>
+		<meta name="title" content="<%= metaTitle%> " />
+		<%}%> <% if(metaTitle) {%>
+		<meta name="description" content="<%= metaDescription%> " />
+		<%}%>
+		<title><% if(title){ %> <%= title%> <%}%> %></title>
+		<link
+			rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+		/>
+		<link rel="stylesheet" href="/assets/frontend/css/FrontEndStyle.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+			integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css"
+		/>
+
+		<link rel="icon" href="/uploads/favicon.svg" type="image/icon type" />
+	</head>
+	<body>
+		<div class="header">
+			<div class="menu">
+				<% if(categories){ %> <% categories.forEach((cat,index)=>{ %>
+
+				<a href="/category/<%= cat._id%>"><%=cat.categoryName%></a>
+				<% }) %> <% } %>
+			</div>
+			<div class="my-order">
+				<div class="wishlist-cart"><i class="fas fa-heart"></i></div>
+				<div class="cart"><i class="fas fa-cart-plus"></i></div>
+				<div class="search">
+					<form action="/search" method="get">
+						<input type="text" name="search" placeholder=" product name" />
+						<input type="submit" value="search" />
+					</form>
+				</div>
+				<%if(user){%>
+
+				<a href="/my-order/<%= user %>">my order</a>
+				<a href="/logout">Logout</a>
+				<%}else{%>
+				<a href="/login">login</a>
+				<a href="/register">register</a>
+				<%}%>
+			</div>
+		</div>
+	</body>
+</html>

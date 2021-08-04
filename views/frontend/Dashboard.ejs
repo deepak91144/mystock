@@ -1,0 +1,29 @@
+<%- include('header')%>
+
+<table class="table">
+	<thead>
+		<th>name</th>
+		<th>email</th>
+		<th>image</th>
+		<th>opperation</th>
+	</thead>
+	<tbody>
+		<% if(userDetails){ %>
+		<tr>
+			<td><%= userDetails.name %></td>
+			<td><%= userDetails.email %></td>
+			<td>
+				<img
+					src="/uploads/<%= userDetails.image %>"
+					alt=""
+					width="100"
+					height="100"
+				/>
+			</td>
+			<td><a href="/user/update/<%= userDetails._id%>">update</a></td>
+		</tr>
+		<%}%>
+	</tbody>
+</table>
+
+<%- include('footer')%>

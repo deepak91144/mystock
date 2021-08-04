@@ -1,0 +1,34 @@
+<%- include("header.ejs") %>
+<div class="cat-con">
+	<form action="/admin/subcategory/save" method="post">
+		<input
+			type="text"
+			placeholder="eneter sub category name"
+			name="subCategoryName"
+		/>
+
+		<br />
+		<% if(errors.subCategoryName){ %>
+		<p><%= errors.subCategoryName.msg%></p>
+		<%}%>
+		<input
+			type="text"
+			placeholder="eneter sub category name"
+			name="subCategoryDetails"
+		/><br />
+		<% if(errors.subCategoryDetails){ %>
+		<p><%= errors.subCategoryDetails.msg%></p>
+		<%}%>
+		<select name="parentCategory" id="">
+			<%categories.forEach((cat,ind)=>{%>
+			<option value="<%= cat._id %>"><%= cat.categoryName%></option>
+			<%})%>
+		</select>
+		<br />
+		<% if(errors.parentCategory){ %>
+		<p><%= errors.parentCategory.msg%></p>
+		<%}%>
+		<input type="submit" value="Add Sub Category" />
+	</form>
+</div>
+<%- include("footer.ejs") %>

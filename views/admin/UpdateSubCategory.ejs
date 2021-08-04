@@ -1,0 +1,27 @@
+<%- include("header.ejs") %>
+
+<form action="/admin/subcategory/edit" method="post">
+	<input
+		type="text"
+		name="subCategoryName"
+		value="<%= subCategories.subCategoryName%>"
+	/><br />
+    <input type="hidden" name="hiddenId" value="<%=subCategories._id %>">
+	<input
+		type="text"
+		name="subCategoryDetails"
+		value="<%= subCategories.subCategoryDetails%>"
+	/><br />
+   
+    <br>
+     
+
+	<select name="parentCategory" id="">
+		<% categories.forEach((data,index)=>{ %>
+            
+		<option  <% if(subCategories.parentCategory._id==data._id){  %><%= data._id%>  <%}%>  value="<%= data._id%>" > <%= data.categoryName %> </option>
+		<%})%>
+	</select>
+	<input type="submit" />
+</form>
+<%- include("footer.ejs") %>

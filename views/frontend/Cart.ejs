@@ -1,0 +1,55 @@
+<%- include("header.ejs")%> <%if(product){%>
+<div class="cartContainer">
+	<table class="cartTable" cellspacing="0px">
+		<thead>
+			<th>product</th>
+			<th>qty</th>
+			<th>price</th>
+			<th>total price</th>
+
+			<th>delete</th>
+		</thead>
+		<tbody>
+			<% product.forEach((data,index)=>{%>
+			<tr>
+				<td class="product">
+					<img src="/uploads/<%= data.image%>" alt="" />
+					<h1><%= data.name%></h1>
+				</td>
+				<td>
+					<% products.forEach((d,i)=>{%> <% if( data._id==d.product){%>
+					<input
+						product-id="<%= data._id%>"
+						class="qty-update"
+						value="<%= d.qty%>"
+					/>
+					<%}%><%})%>
+					<button class="plus">plus</button>
+					<button class="minus">minus</button>
+				</td>
+				<td class="productPrice"><%= data.price%></td>
+				<td class="price-td">
+					<% products.forEach((d,i)=>{%> <% if( data._id==d.product){%>
+					<h5 class="price" price="<%= data.price%>">
+						<%= parseInt(d.price)%>
+					</h5>
+					<%}%><%})%>
+				</td>
+
+				<td>
+					<button class="delete-product-from-cart" product-id="<%= data._id%>">
+						delete
+					</button>
+				</td>
+			</tr>
+			<%})%> <%}%>
+		</tbody>
+	</table>
+	<div class="cartTotal">subtotal:<%if(cartTotal){%> <%= cartTotal%> <%}%></div>
+	<div class="checkoutWrap">
+		<a href="/">continue shopping</a>
+		<a href="/checkout">checkout</a>
+	</div>
+</div>
+
+<%- include("footer.ejs")%>
